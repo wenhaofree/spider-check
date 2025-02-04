@@ -6,6 +6,9 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # 切换到脚本所在目录
 cd "$SCRIPT_DIR"
 
+# 创建 logs 目录（如果不存在）
+mkdir -p logs
+
 # 查找并终止现有的 Python 进程
 PID=$(pgrep -f "python3 schedule.py")
 if [ ! -z "$PID" ]; then
