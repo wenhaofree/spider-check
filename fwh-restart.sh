@@ -10,7 +10,7 @@ cd "$SCRIPT_DIR"
 mkdir -p logs
 
 # 查找并终止现有的 Python 进程
-PID=$(pgrep -f "python3 schedule.py")
+PID=$(pgrep -f "python3 ikuu_schedule.py")
 if [ ! -z "$PID" ]; then
     echo "正在终止现有进程..."
     echo "进程 ID: $PID"
@@ -21,14 +21,14 @@ fi
 
 # 启动 Python 脚本并在后台运行
 echo "正在启动定时任务程序..."
-nohup python3 schedule.py > logs/schedule.log 2>&1 &
+nohup python3 ikuu_schedule.py > logs/ikuu_schedule.log 2>&1 &
 NEW_PID=$!
 
 # 检查进程是否成功启动
 if ps -p $NEW_PID > /dev/null; then
     echo "✓ 定时任务程序启动成功"
     echo "新进程 ID: $NEW_PID"
-    echo "日志文件位置: $SCRIPT_DIR/logs/schedule.log"
+    echo "日志文件位置: $SCRIPT_DIR/logs/ikuu_schedule.log"
 else
     echo "✗ 程序启动失败，请检查日志文件"
     exit 1
