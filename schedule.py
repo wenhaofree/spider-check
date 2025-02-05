@@ -12,7 +12,8 @@ def job():
 
 def schedule_job():
     # schedule.every(3).hours.do(job)  # 一天六次
-    schedule.every().day.at("12:00").do(job)
+    schedule.every(1).days.do(job)
+    # schedule.every().day.at("00:00").do(job)  # 每天凌晨执行
 
     while True:
         schedule.run_pending()
