@@ -46,7 +46,7 @@ def schedule_job():
     logger = logging.getLogger()
     # schedule.every(3).hours.do(job)  # 一天六次
     # schedule.every(1).days.do(job)
-    schedule.every().day.at("00:00").do(job)  # 每天凌晨执行
+    schedule.every().day.at("08:00").do(job)  # 每天凌晨执行
     logger.info('定时任务已设置：每天 00:00 执行')
 
     while True:
